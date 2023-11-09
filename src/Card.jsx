@@ -1,15 +1,21 @@
-function Card(props) {
+function Card({ name, likes, click }) {
     return (<div className="card">
-        <button className="btn">x</button>
-        <img src="giraffe.jpeg" alt="no img"></img>
+        <button className="btn" onClick={click}>x</button>
+        <img src={`https://source.unsplash.com/400x400/?${name}`} alt="no img"></img>
         <div className="textwrap">
-            <h3>Name: {props.name}</h3>
+            <p>Name: {name}</p>
             <div className="symbolwrap">
-                <button className="btnminus">-</button>
-                <p className="brokenheart">&#128148;</p>
-                <p className="heart">&#129294;</p>
-                <p className="likes">{props.likes}</p>
-                <button className="btnplus">+</button>
+                <button className="btnminus"><span className="material-symbols-outlined">
+                    heart_minus
+                </span></button>
+                {/*                 <p className="brokenheart">&#128148;</p> */}
+                <p className="likes">{likes}</p>
+                <p className="heart"><span className="material-symbols-outlined">
+                    favorite
+                </span></p>
+                <button className="btnplus"><span className="material-symbols-outlined">
+                    heart_plus
+                </span></button>
             </div>
         </div>
     </div>

@@ -3,19 +3,25 @@ import './App.css'
 import Card from './Card.jsx'
 import Header from './Header.jsx'
 import Footer from './Footer.jsx'
-import './animalsList.js'
+import { animals } from './animalsList.js'
 
 function App() {
-  const [animals, setAnimals] = useState([
-    { name: '', likes: 0 }]);
+  const [animalsList, setAnimalsList] = useState(animals);
+
+  function removeHandler(name) {
+    const updatedArray = animalsList.filter(animal => animal.name !== name);
+    setAnimalsList(updatedArray);
+  }
 
   return (
     <>
       <Header logo="The Zoo Project" />
       <main>
         <div className="cards">
-          {animals.map((animal, i) => (
-            <Card key={i} name={animal.name} likes={animal.likes} />))}
+          {animalsList.map((animal) => (
+            <Card key={animal.name}
+              {...animal}
+              click={() => removeHandler(animal.name)} />))}
         </div>
       </main >
       <Footer copyright="Copyright 2023" />
