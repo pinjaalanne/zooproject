@@ -55,22 +55,26 @@ h3 {
 
 .search {
   margin: 2rem;
-  width: 150px;
+  width: 200px;
   padding: 0.5rem;
   background-color: #8eab95;
   border-radius: 3px;
   filter: saturate(50%);
   border: none;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
 }
 
 .search:hover {
   filter: none;
 }
 
+.search:focus {
+  border: 2px solid #133027;
+}
+
 ::placeholder {
   font-family: inherit;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-style: italic;
   color: rgba(255, 255, 255, 0.811);
 }
@@ -147,18 +151,14 @@ img {
   cursor: pointer;
 }
 
-.brokenheart,
-.heart {
-  margin: 1rem 0;
-}
-
 .likes {
-  margin: 1rem 0;
-  font-size: 1rem;
+  margin: 1rem 0.2rem;
+  font-size: 0.9rem;
   font-weight: 700;
 }
 
 .material-symbols-outlined {
+  font-size: 1.1rem;
   font-variation-settings:
     'FILL' 10,
     'wght' 200,
