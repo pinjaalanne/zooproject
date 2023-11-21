@@ -1,16 +1,22 @@
 import { useState } from 'react'
 import './App.css'
-import Card from './Card.jsx'
-import Header from './Header.jsx'
-import Footer from './Footer.jsx'
-import { animals } from './animalsList.js'
+import { animals, birds } from './animalsList.js'
+import Home from './routes/Home.jsx';
+import Animals from './routes/Animals.jsx';
+import Birds from './routes/Birds.jsx';
+import About from './routes/About.jsx';
+import ErrorPage from './routes/ErrorPage'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import Root from './routes/Root'
 
 function App() {
   const [animalsList, setAnimalsList] = useState(animals);
 
+  const [birdsList, setBirdsList] = useState(birds);
+
   const [searchInput, setSearchInput] = useState('');
 
-  const handleChange = (e) => {
+  const searchHandler = (e) => {
     setSearchInput(e.target.value);
   };
 
@@ -19,7 +25,10 @@ function App() {
     setAnimalsList(updatedArray);
   }
 
-  // const [allLikes, setAllLikes] = useState(0);
+  function removeBirdHandler(name) {
+    const updatedArray = birdsList.filter(bird => bird.name !== name);
+    setBirdsList(updatedArray);
+  }
 
   const likeHandler = (name, action) => {
     const updatedArray = animalsList.map((animal) => {
@@ -36,28 +45,59 @@ function App() {
     setAnimalsList(updatedArray);
   };
 
+  const likeBirdHandler = (name, action) => {
+    const updatedArray = birdsList.map((bird) => {
+      if (bird.name === name) {
+        if (action === 'add') {
+          return { ...bird, likes: bird.likes + 1 };
+        } else {
+          return { ...bird, likes: bird.likes - 1 };
+        }
+      } else {
+        return bird;
+      }
+    });
+    setBirdsList(updatedArray);
+  };
+
+  const router = createBrowserRouter([
+    {
+      path: '/', element: < Root />,
+      errorElement: <ErrorPage />,
+      children: [
+        { path: '/', element: < Home /> },
+        {
+          path: '/animals',
+          element: (
+            <Animals
+              searchHandler={searchHandler}
+              likeHandler={likeHandler}
+              removeHandler={removeHandler}
+              searchInput={searchInput}
+              animalsList={animalsList}
+            />
+          )
+        },
+        {
+          path: '/birds',
+          element: (
+            <Birds
+              searchHandler={searchHandler}
+              likeBirdHandler={likeBirdHandler}
+              removeBirdHandler={removeBirdHandler}
+              searchInput={searchInput}
+              birdsList={birdsList}
+            />
+          )
+        },
+        { path: '/about', element: < About /> },
+      ]
+    }
+  ]);
+
   return (
     <>
-      <Header logo="The Zoo Project" />
-      <main>
-        <input className="search" id="search" type="text"
-          placeholder="Search" onChange={handleChange}></input>
-        <div className="cards">
-          {animalsList
-            .filter((animal) =>
-              animal.name
-                .toLowerCase()
-                .includes(searchInput.toLowerCase()))
-            .map((animal) => (
-              <Card key={animal.name}
-                {...animal}
-                click={() => removeHandler(animal.name)}
-                addLike={() => likeHandler(animal.name, 'add')}
-                removeLike={() => likeHandler(animal.name, 'remove')}
-              />))}
-        </div>
-      </main >
-      <Footer copyright="Copyright 2023" />
+      <RouterProvider router={router} />
     </>
   )
 }
