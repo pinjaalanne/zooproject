@@ -46,16 +46,37 @@ h1 {
   font-size: 3em;
   line-height: 1.1;
   font-weight: 700;
+  text-transform: capitalize;
 }
 
 h2 {
   padding: 0.5rem;
   margin-top: 2rem;
+  text-transform: capitalize;
 }
 
 h3 {
   font-size: 0.8rem;
   padding: 0 0 1rem 0;
+}
+
+.seemore {
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-decoration: none;
+  color: white;
+}
+
+.seemore:hover {
+  text-decoration: underline;
+}
+
+.datalikes {
+  margin: 0.5rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 ul li {
@@ -67,18 +88,23 @@ ul li {
   font-size: 1.2rem;
 }
 
-a {
+li a {
   text-decoration: none;
   color: white;
 }
 
-a:hover {
+li a:hover {
   color: rgb(149, 169, 149);
 }
 
-a.active {
+li a.active {
   color: rgb(174, 196, 174);
   border-bottom: 1px solid rgb(174, 196, 174);
+}
+
+.logo {
+  text-decoration: none;
+  color: white;
 }
 
 .fox,
@@ -149,21 +175,44 @@ a.active {
   border-radius: 3px;
 }
 
-.removebtn {
+.removebtn,
+.returnbtn {
+  font-family: inherit;
+  background-color: #37574d;
   top: 0.5rem;
   right: 0.5rem;
   font-size: 0.7rem;
   padding: 0.4rem 0.6rem;
-  background-color: #37574d;
-  box-shadow: 1px 1px 1px #263b34b3;
+  box-shadow: 0.5px 0.5px 1px #263b34b3;
   border-radius: 3px;
   border: none;
-  position: absolute;
   cursor: pointer;
+}
+
+.returnbtn {
+  font-weight: 600;
+  font-size: 0.8rem;
+  background: #79947f;
+  color: #0c261e;
+  margin: 1rem;
+}
+
+.removebtn {
+  position: absolute;
 }
 
 .removebtn:hover {
   background: #133027;
+}
+
+.returnbtn:hover {
+  background: #4e6a54;
+}
+
+.singlecardimg {
+  margin: 0.8rem;
+  max-width: 300px;
+  border-radius: 3px;
 }
 
 .textwrap {

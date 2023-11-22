@@ -1,7 +1,7 @@
-function Footer(props) {
+function Footer() {
     return (
         <footer>
-            <p>{props.copyright}</p>
+            <p>Copyright 2023</p>
         </footer>
     );
 }
