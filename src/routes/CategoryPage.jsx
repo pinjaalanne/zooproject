@@ -11,7 +11,7 @@ function CategoryPage(props) {
             <h1>
                 {category}
             </h1>
-            <Search />
+            <Search searchHandler={props.searchHandler} />
             <div className="cards">
                 {props[category]
                     .filter((el) =>
