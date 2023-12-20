@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import './App.css'
-import { animals, birds } from './animalsList.js'
+import { animals, birds, fish, insects } from './animalsList.js'
 import Root from './routes/Root'
 import Home from './routes/Home.jsx';
 import About from './routes/About.jsx';
@@ -11,7 +10,7 @@ import ErrorPage from './routes/ErrorPage'
 
 function App() {
   const [zoo, setZoo] = useState(
-    { animals: animals, birds: birds })
+    { animals: animals, birds: birds, fish: fish, insects: insects })
 
   const [searchInput, setSearchInput] = useState('');
 

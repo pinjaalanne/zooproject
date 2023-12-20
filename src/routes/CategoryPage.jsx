@@ -8,24 +8,26 @@ function CategoryPage(props) {
 
     return (
         <>
-            <h1>
+            <h2>
                 {category}
-            </h1>
+            </h2>
             <Search searchHandler={props.searchHandler} />
-            <div className="cards">
-                {props[category]
-                    .filter((el) =>
-                        el.name
-                            .toLowerCase()
-                            .includes(props.searchInput.toLowerCase()))
-                    .map((el) => (
-                        <Card key={el.name}
-                            {...el}
-                            click={() => props.removeHandler(el.name, category)}
-                            addLike={() => props.likeHandler(el.name, 'add', category)}
-                            removeLike={() => props.likeHandler(el.name, 'remove', category)}
-                        />))}
-            </div>
+            <main>
+                <div className="cards">
+                    {props[category]
+                        .filter((el) =>
+                            el.name
+                                .toLowerCase()
+                                .includes(props.searchInput.toLowerCase()))
+                        .map((el) => (
+                            <Card key={el.name}
+                                {...el}
+                                click={() => props.removeHandler(el.name, category)}
+                                addLike={() => props.likeHandler(el.name, 'add', category)}
+                                removeLike={() => props.likeHandler(el.name, 'remove', category)}
+                            />))}
+                </div>
+            </main>
         </>
     );
 }
