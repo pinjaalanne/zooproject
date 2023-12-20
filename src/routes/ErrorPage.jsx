@@ -5,7 +5,7 @@ export default function ErrorPage() {
 
     return (
         <>
-            <h2>Oops you did it again!</h2>
+            <h2>Ops error!</h2>
             <p>{error.statusText || error.message}</p>
         </>
     );

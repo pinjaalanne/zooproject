@@ -4,12 +4,9 @@ function SinglePage(props) {
     const params = useParams();
     let navigate = useNavigate();
 
-    console.log(params, 'this is the params');
     let elArray = props[params.category]
-    console.log(elArray, 'this is the array');
 
     let data = elArray.find((el) => el.name == params.name);
-    console.log(data, 'this the data');
 
     return (
         <main>
