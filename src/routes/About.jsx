@@ -17,10 +17,9 @@ function About() {
 
                 <h3 className="aboutheader">Individual Pages:</h3>
                 <p className="abouttext">For a more in-depth experience, each species has its own dedicated page.
-                    Dive into the details, view stunning images, and uncover facts that will deepen your appreciation for the incredible biodiversity that surrounds us.</p>
-
-                <p className="abouttext">Whether you&apos;re a seasoned wildlife enthusiast or a casual observer, our website is your portal to the awe-inspiring world of animals, birds, fish, and insects.
-                    Embark on a journey of discovery, and let the wonders of the natural world captivate your imagination!</p>
+                    Dive into the details, view stunning images, and uncover facts that will deepen your appreciation for the biodiversity that surrounds us.</p>
+                <p className="abouttext">Whether you&apos;re a seasoned wildlife enthusiast or a casual observer, our website is your portal to the inspiring world of animals, birds, fish, and insects.
+                </p>
             </div>
         </main>
     );

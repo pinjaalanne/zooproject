@@ -1,11 +1,13 @@
 import { useParams, useNavigate } from "react-router-dom";
 
 function SinglePage(props) {
+    // using useparams hook to get the params from the url
     const params = useParams();
+    // using useNavigate hook to navigate back to the previous page
     let navigate = useNavigate();
-
+    // creating an array and using the params to find the data
     let elArray = props[params.category]
-
+    // using find method to find the category data
     let data = elArray.find((el) => el.name == params.name);
 
     return (
