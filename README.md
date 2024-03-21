@@ -46,12 +46,12 @@ Each species has its own individual page, providing detailed information and vis
 2. **Local Setup:**
    - Clone the repository:
      ```bash
-     git clone https://github.com/your-username/animal-app.git
+     git clone https://github.com/pinjaalanne/zooproject.git
      ```
 
    - Navigate to the project directory:
      ```bash
-     cd animal-app
+     cd zooproject
      ```
 
    - Install dependencies:
